@@ -99,8 +99,8 @@
 }
 
 
-// Группировка по искомомоу полю (GROUP BY fieldName) ASC fieldName
-// в в возвращаемом массиве данные типа: NSDictionaryResultType
+// (GROUP BY fieldName) ASC fieldName
+// return: NSDictionaryResultType
 -(NSMutableArray *)handleSearchForTermWithoutPredicate:(NSString*)text entityName:(NSString *)entityName fieldName:(NSString*)fieldName {
     
     if (_persistence == nil) {
@@ -276,7 +276,7 @@
             
             NSString *columnName = [[_uniAlphabet objectForKey:keyName] uppercaseString];
             NSString *cellContent = [nds valueForKey:keyName];
-            // формируем "словарь" по ключу - названию столбца и значению - содержимого ячейки
+            // form "dictionary" using the key - field name&value - row's content
 //            NSLog(@"\n columnName: %@ cellContent: %@ \n", columnName, cellContent);
             if (columnName != nil) {
                 NSMutableDictionary *tempMenuDictionary = [NSMutableDictionary dictionary];
@@ -292,7 +292,7 @@
                     }
                 }
                 
-                // записываем словарь в массив menu4drugs
+                // dictionary into the array: menu4drugs
                 //                            [_menu4drugs_AppDetailsView addObject:tempMenuDictionary];
 //                NSLog(@"\n insertObject: %@ atIndex:%d \n", tempMenuDictionary, internalCounter);
 //                [_menu4drugs_AppDetailsView insertObject:tempMenuDictionary atIndex:internalCounter];
